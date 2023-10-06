@@ -36,6 +36,7 @@ There are multiple ways to deal with imbalanced datasets:
 * Doing nothing :)
 
 In this example, we will simply do nothing as this often yields the best results.
+Then we used weighted loss with with weight 3 for pos (pneumonia) samples and compare them at the end.
 
 **Now it is time to create the model** - We will use the ResNet18 network architecture.
 
@@ -55,14 +56,12 @@ Compute metrics:
 We can see that the overall result is already decent with our simple model.<br />
 However, we suffer from a large amount of False Negatives due to the data imbalance.<br />
 This is of particular importance in to avoid in medical imaging as missing findings might be fatal.<br />
-Val Accuracy: 0.8457525968551636 <br/>
-Val Precision: 0.7002096176147461 <br/>
-Val Recall: 0.5520660877227783 <br/>
+Val Accuracy: 78.65 <br/>
+Val Precision: 51.60 <br/>
+Val Recall: 85.12 <br/>
 Confusion Matrix: <br/>
- tensor([[1936,  143],
-        [ 271,  334]]) <br/>
-Confusion Matrix 2: <br/>
- tensor([[1725,  354],
-        [ 136,  469]]) <br/>
+      [[1596,  483],<br/>
+      [ 90,  579]] <br/>
+        
 
 Final results of classification: <br/> ![alt text](images/prediction.png?raw=true)
