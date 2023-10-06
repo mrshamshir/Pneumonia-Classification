@@ -52,16 +52,32 @@ We use the **Adam** Optimizer with a learning rate of 0.0001 and the **BinaryCro
 
 Trainer documentation: https://pytorch-lightning.readthedocs.io/en/latest/common/trainer.html
 
-Compute metrics:
-We can see that the overall result is already decent with our simple model.<br />
-However, we suffer from a large amount of False Negatives due to the data imbalance.<br />
-This is of particular importance in to avoid in medical imaging as missing findings might be fatal.<br />
+## Evaluation
+Compute metrics:<br />
+We can see that the overall result is already decent with our simple model.
+However, we suffer from a large amount of False Positive due to the data imbalance.
+We have high validation recall, this tells us that our model hardly misses a case of pnemonia. 
+This is of particular importance in medical imaging, because missing findings might be fatal.<br />
+
 Val Accuracy: 78.65 <br/>
 Val Precision: 51.60 <br/>
 Val Recall: 85.12 <br/>
 Confusion Matrix: <br/>
       [[1596,  483],<br/>
       [ 90,  579]] <br/>
-        
+
+
+This is results without weighted loss:<br />
+We can see that we have higher accuracy and precision.
+However, the recall values is much lesser. This means our model missed more cases of pnemonia which is not good in medical purposes.
+
+Val Accuracy: 85.17 <br/>
+Val Precision: 72.55 <br/>
+Val Recall: 55.04 <br/>
+Confusion Matrix: <br/>
+      [[1953,  126],<br/>
+      [ 131,  474]] <br/>  
+
+
 
 Final results of classification: <br/> ![alt text](images/prediction.png?raw=true)
